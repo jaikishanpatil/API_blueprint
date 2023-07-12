@@ -16,12 +16,14 @@ async function initilize() {
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
     // CONNECT TO DB 
-    const sequelize = new Sequelize(database,user,password,{
-        dialect :"mysql",
+    const sequelize = new Sequelize(database, user, password, {
+        dialect: "mysql",
         host
     });
 
+    db.user =   require("../model/test.model")(sequelize)
     // init module and add them to the exported db object 
+    await sequelize.sync({ alter: true })
 
 }
 

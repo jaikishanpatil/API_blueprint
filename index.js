@@ -57,7 +57,7 @@ function verifyToken(req, res, next) {
 }
 
 //routes can be from here
-
+app.use("/api/users",require("./controller/test.controller")) // to crate db you need to add controller and in controller while using service you have to add model 
 //global error handler
 app.use(errorHandler)
 
